@@ -241,7 +241,7 @@ function LoginPage() {
   );
 }
 
-function Field({ label, error, htmlFor, action, children }: { label: string; error?: string; htmlFor: string; action?: React.ReactNode; children: React.ReactNode }) {
+function Field({ label, error, htmlFor, action, children }: { label: string; error: string | undefined; htmlFor: string; action?: React.ReactNode; children: React.ReactNode }) {
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between gap-4">
