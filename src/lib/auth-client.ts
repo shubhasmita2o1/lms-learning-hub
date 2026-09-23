@@ -21,8 +21,8 @@ type LoginResponse = {
 };
 
 export class AuthApiError extends Error {
-  code?: string;
-  details?: { tenantIds?: string[] };
+  code: string | undefined;
+  details: { tenantIds?: string[] } | undefined;
 
   constructor(message: string, code?: string, details?: { tenantIds?: string[] }) {
     super(message);
@@ -33,7 +33,7 @@ export class AuthApiError extends Error {
 }
 
 export async function login(input: LoginInput): Promise<LoginResponse> {
-  const baseUrl = import.meta.env.VITE_API_BASE_URL || "/api/v1";
+  const baseUrl = import.meta.env["VITE_API_BASE_URL"] || "/api/v1";
   const response = await fetch(`${baseUrl}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
